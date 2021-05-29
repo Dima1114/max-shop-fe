@@ -19,9 +19,10 @@ export default function ProductsGrid({products}) {
 
     return (
         <div className={classes.root}>
-            {products && <Box display="flex" ustifyContent="center" flexWrap={"wrap"}>
+            {console.log("products in Grid", products)}
+            {products && <Box display="flex" justifyContent="center" flexWrap={"wrap"}>
                 {products.map((it, i) =>
-                    <Box p={1}>
+                    <Box key={"item_" + i} p={1}>
                         <ProductCard title={it.title} price={it.price} salePrice={it.salePrice}/>
                     </Box>)}
             </Box>}
