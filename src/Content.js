@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import './App.css';
 import Navigation from "./components/Navigation";
 import ProductsGrid from "./components/ProductsGrid";
+import Footer from "./components/Footer";
 import {getEntityList} from "./actions/productsActions";
 import {Button} from "@material-ui/core";
 
@@ -51,6 +52,7 @@ function Content() {
                 onClick={() => setPage(page + 1)}>
                 next
             </Button>
+            <Footer />
             {/*<img src="/logo512.png" alt="image" />*/}
             {/*<header className="App-header">*/}
             {/*  <img src={logo} className="App-logo" alt="logo" />*/}
