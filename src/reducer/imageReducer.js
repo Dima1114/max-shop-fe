@@ -1,35 +1,35 @@
-export const GET_PRODUCTS_REQUESTED = "GET_PRODUCTS_REQUESTED";
-export const GET_PRODUCTS_SUCCESS = "GET_PRODUCTS_SUCCESS";
-export const GET_PRODUCTS_FAIL = "GET_PRODUCTS_FAIL";
+export const GET_IMAGE_REQUESTED = "GET_IMAGE_REQUESTED";
+export const GET_IMAGE_SUCCESS = "GET_IMAGE_SUCCESS";
+export const GET_IMAGE_FAIL = "GET_IMAGE_FAIL";
 
-function productsReducer(state = {}, action) {
+function imageReducer(state = {}, action) {
     switch (action.type) {
-        case GET_PRODUCTS_REQUESTED: {
+        case GET_IMAGE_REQUESTED: {
             return {
                 ...state,
-                products: {
+                [action.payload.storeName]: {
                     loading: true,
-                    data: [],
+                    data: null,
                     error: null
                 }
             }
         }
-        case GET_PRODUCTS_SUCCESS: {
+        case GET_IMAGE_SUCCESS: {
             return {
                 ...state,
-                products: {
+                [action.payload.storeName]: {
                     loading: false,
                     data: action.payload.data,
                     error: null
                 }
             }
         }
-        case GET_PRODUCTS_FAIL: {
+        case GET_IMAGE_FAIL: {
             return {
                 ...state,
-                products: {
+                [action.payload.storeName]: {
                     loading: false,
-                    data: [],
+                    data: null,
                     error: action.payload.error
                 }
             }
@@ -39,4 +39,4 @@ function productsReducer(state = {}, action) {
     }
 }
 
-export default productsReducer;
+export default imageReducer;

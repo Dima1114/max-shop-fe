@@ -1,53 +1,45 @@
 import React from 'react';
 import FacebookIcon from '@material-ui/icons/Facebook';
-import TwitterIcon from '@material-ui/icons/Twitter';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
+import {withStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
+import {blueGrey} from "@material-ui/core/colors";
+import {IconButton} from "@material-ui/core";
+import {Instagram} from "@material-ui/icons";
 
 const styles = theme => ({
     root: {
         ...theme.mixins.gutters(),
-        paddingTop: theme.spacing.unit * 1,
-        paddingBottom: theme.spacing.unit * 1,
-        backgroundColor: theme.palette.primary.main,
+        paddingTop: theme.spacing(1),
+        paddingBottom: theme.spacing(1),
+        backgroundColor: blueGrey[600],
         color: theme.palette.background.paper
     },
     footer: {
-        backgroundColor: theme.palette.background.paper,
-        marginTop: theme.spacing.unit * 1,
-        padding: `${theme.spacing.unit * 1}px 0`,
+        backgroundColor: theme.palette.primary.dark,
+        marginTop: theme.spacing(1),
     }
 });
 
 function Footer(props) {
-    const { classes } = props;
+    const {classes} = props;
 
     return (
         <footer className={classes.footer}>
-            <Paper className={classes.root} elevation={3}>
-                <Grid
-                    container
-                    direction="row"
-                    justify="space-between"
-                    alignItems="center"
-                >
-                    <Typography component="p">
-                        @2021 All right reserved
-                    </Typography>
-                    <Typography component="h4">
-                        MAX-Shop
+            <div className={classes.root}>
+                <Typography component="p">
+                    @2021 All right reserved
                 </Typography>
-                    <Typography>
-                        <FacebookIcon />
-                        <TwitterIcon />
-                        <YouTubeIcon />
-                    </Typography>
-                </Grid>
-            </Paper>
+                <Typography component="h4">
+                    MAX-Shop
+                </Typography>
+                <Typography>
+                    <IconButton color={'inherit'}><FacebookIcon/></IconButton>
+                    <IconButton color={'inherit'}><Instagram/></IconButton>
+                    <IconButton color={'inherit'}><YouTubeIcon/></IconButton>
+                </Typography>
+            </div>
         </footer>
     );
 }
